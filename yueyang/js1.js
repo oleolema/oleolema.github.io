@@ -4,7 +4,7 @@ var p2 = document.getElementById('p2');
 var num = document.getElementById('table1');
 var qu, an;
 var right = 0, wrong = 0, sum = -1, presum = -2, starttime = new Date();
-localStorage.clear();
+//localStorage.clear();
 next();
 getStorage();
 info();
