@@ -1,0 +1,16 @@
+main{
+    text-align:center;
+}
+#p1{
+    font-size:100px;
+    font-weight:bold;
+    margin:10px,auto,0px,auto;
+}
+#table1 tr td{
+    font-size:50px;
+    font-weight:bold;
+    padding:30px;
+}
+#table1{
+    margin:auto;
+}
