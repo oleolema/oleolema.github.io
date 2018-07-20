@@ -5,11 +5,12 @@ main{
     font-size:100px;
     font-weight:bold;
     margin:10px,auto,0px,auto;
+    heigh:200px;
 }
 #table1 tr td{
-    font-size:50px;
+    font-size:70px;
     font-weight:bold;
-    padding:30px;
+    padding:50px;
 }
 #table1{
     margin:auto;
