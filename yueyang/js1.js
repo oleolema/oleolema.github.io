@@ -5,20 +5,24 @@ var num = document.getElementById('table1');
 var qu, an;
 var right = 0, wrong = 0, sum = -1, presum = -2;
 next();
-/*
-console.info(num);
-num.addEventListener("mouseover",function(event){
-    var a = event.fromElement;
-    console.log(event);
-    a.bgcolor ='#ff0000';
-},false);
-num.addEventListener("mouseout",function(event){
-    console.log(event.fromElement.getElementsByClassName('num').length);
-},false);
+getStorage();
+info();
 
-*/
+function save(){
+    localStorage.setItem("right", right+'/'+wrong+'/'+sum);
+}
+function getStorage(){
+    if(!localStorage.getItem('right')){
+        return ;
+    }
+    var arr = localStorage.getItem('right').split('/');
+    right = parseInt(arr[0]);
+    wrong = parseInt(arr[1]);
+    sum = parseInt(arr[2]);
+}
 function info() {
     p2.style.color = randcolor('#333333', '#ffffff');
+    save();
     p2.innerHTML = '做了 ' + sum + ' 个题, 答对 ' + right + '个, 答错 ' + wrong + '个, 正确率为 ' + parseInt(right / sum * 100) + '% ,用时：';
 }
 function randcolor(a, b) {
