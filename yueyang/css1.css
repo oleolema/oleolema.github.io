@@ -4,13 +4,13 @@ main{
 #p1{
     font-size:100px;
     font-weight:bold;
-    margin:10px,auto,0px,auto;
-    height:200px;
+    margin:0px,auto,0px,auto;
+    height:150px;
 }
 #table1 tr td{
     font-size:70px;
     font-weight:bold;
-    padding:50px;
+    padding:30px;
 }
 #table1{
     margin:auto;
