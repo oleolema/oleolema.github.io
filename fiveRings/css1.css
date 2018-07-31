@@ -1,0 +1,44 @@
+* {
+    margin: 0px;
+    padding: 0xp;
+}
+
+.ring{
+    width:100px;
+    height:100px;
+    border-width:10px;
+    border-style:solid;
+    border-radius:50%;
+    display:inline-block;
+    position:absolute;
+}
+.redRing{
+    left:130px;
+    top:-50px;
+    border-color:#f00;
+    z-index:0;
+}
+.blueRing{
+    left:-130px;
+    top:-50px;
+    border-color:blue;
+    z-index:0;
+}
+.blackRing{
+    top:-50px;
+    border-color:black;
+}
+.yellowRing{
+    left:-75px;
+    border-color:yellow;
+}
+.greenRing{
+    left:75px;
+    border-color:green;
+}
+
+.fiveRings{
+    position: fixed;
+    left:45%;
+    top:45%;
+}
