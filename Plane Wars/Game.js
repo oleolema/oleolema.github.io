@@ -93,13 +93,12 @@
         this.canvas.width = windowW;
         this.canvas.height = windowH;
         //禁止滑动
-        var mo = function (e) {
+        window.ontouchmove = function (e) {
+            e.preventDefault && e.preventDefault();
+            e.returnValue = false;
+            e.stopPropagation && e.stopPropagation();
+            return false;
         };
-        stop();
-        function stop() {
-            document.body.style.overflow = 'hidden';
-            document.addEventListener("touchmove", mo, false);//禁止页面滑动 
-        }
     }
     Game.prototype.loadResources = function (callback) {
         this.R = {};
