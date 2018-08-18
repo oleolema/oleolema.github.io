@@ -13,7 +13,7 @@
                     self.box.push(new self.Bullet(0, 0));
                     self.audio.play();
                     self.audio.play();
-                }, 200);
+                }, 160);
             },
             bullet1: function () {
                 return setInterval(function () {
@@ -27,7 +27,7 @@
                     self.audio.load();
                     self.box.push(new self.Bomb(0, 0));
                     self.audio.play();
-                }, 500);
+                }, 400);
             },
             bulletTwo: function () {
                 return setInterval(function () {
@@ -35,14 +35,7 @@
                     self.box.push(new self.Bullet(-30, 30));
                     self.box.push(new self.Bullet(30, 30));
                     self.audio.play();
-                }, 200);
-            },
-            bullet2: function () {
-                return setInterval(function () {
-                    self.audio.load();
-                    self.box.push(new self.Bullet2(0, 0));
-                    self.audio.play();
-                }, 80);
+                }, 160);
             },
             bulletTwo1: function () {
                 return setInterval(function () {
@@ -52,11 +45,10 @@
                     self.audio.play();
                 }, 130);
             },
-            bulletTwo2: function () {
+            bullet2: function () {
                 return setInterval(function () {
                     self.audio.load();
-                    self.box.push(new self.Bullet2(-30, 30));
-                    self.box.push(new self.Bullet2(30, 30));
+                    self.box.push(new self.Bullet2(0, 0));
                     self.audio.play();
                 }, 80);
             },
@@ -67,7 +59,15 @@
                     self.box.push(new self.Bullet(0, 0));
                     self.box.push(new self.Bullet(30, 30));
                     self.audio.play();
-                }, 200);
+                }, 160);
+            },
+            bulletTwo2: function () {
+                return setInterval(function () {
+                    self.audio.load();
+                    self.box.push(new self.Bullet2(-30, 30));
+                    self.box.push(new self.Bullet2(30, 30));
+                    self.audio.play();
+                }, 80);
             },
             bulletThree1: function () {
                 return setInterval(function () {
@@ -112,7 +112,7 @@
             this.x = x;
             this.y = y;
             this.ms = 40;
-            this.power = 1;
+            this.power = 1.2;
             this.x = this.x + self.plane.w / 2 + self.plane.x - this.w / 2;
             this.y += self.plane.y;
 
