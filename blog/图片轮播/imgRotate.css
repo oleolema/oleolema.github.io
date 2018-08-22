@@ -1,0 +1,78 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.imgBox {
+    width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+.imgBox a {
+    position: absolute;
+}
+
+.smallBoll, .selectBoll {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background: #eee;
+    user-select: none;
+    border-radius: 50%;
+    opacity: 0.618;
+}
+
+div.selectBoll {
+    background: rgb(0, 255, 0);
+}
+
+.preImgShell, .nextImgShell {
+    width: 60px;
+    user-select: none;
+    position: absolute;
+    z-index: 8888;
+}
+
+.preImgShell {
+    left: 0px;
+}
+
+.nextImgShell {
+    right: 0px;
+}
+
+.preImg, .nextImg {
+    width: 80px;
+    user-select: none;
+    background: #eee;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    z-index: 9999;
+    transition: all 0.5s;
+}
+
+.preImg {
+    left: -80px;
+    background: url(http://www.iconpng.com/png/essentials/left46.png) 100px 0px;
+    background-size: 120px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nextImg {
+    right: -80px;
+    background: url(http://www.iconpng.com/png/essentials/right65.png) 100px 0px;
+    background-size: 120px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.preImgShell:hover .preImg {
+    left: 0px;
+}
+
+.nextImgShell:hover .nextImg {
+    right: 0px;
+}
