@@ -8,3 +8,4 @@
 * [小球](http://oleolema.github.io/boll/)
 * [球球](http://oleolema.github.io/bollBoll/)
 * [飞机大战](http://oleolema.github.io/Plane%20Wars/)
+* [音乐](http://oleolema.github.io/Music/)
