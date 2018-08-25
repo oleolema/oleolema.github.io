@@ -74,8 +74,9 @@
                 if (autoPlay) {
                     self.play();
                 }
+                self.loading.className = "loaded";
             }
-            self.loading.className = "loaded";
+     
             clearInterval(timer);
         });
     }
