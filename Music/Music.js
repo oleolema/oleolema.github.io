@@ -397,11 +397,8 @@
     }
     Music.prototype.play = function () {
         var self = this;
-        try{
-        this.audio.play();
-        }catch(e){
-            console.info('音乐还在加载中' + e);
-            return ;
+                self.audio.oncanplay = function () {
+            this.audio.play();
         }
         this.playButton.className = "pauseButton";
         this.musicList.children[this.preListIndex].style.background = '#f1f1f1';
