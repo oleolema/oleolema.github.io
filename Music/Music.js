@@ -397,9 +397,7 @@
     }
     Music.prototype.play = function () {
         var self = this;
-                self.audio.oncanplay = function () {
-            this.audio.play();
-        }
+        this.audio.play();
         this.playButton.className = "pauseButton";
         this.musicList.children[this.preListIndex].style.background = '#f1f1f1';
         this.musicList.children[this.listIndex].style.background = 'pink';
