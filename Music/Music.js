@@ -222,8 +222,8 @@
                 }
             }
             //显示列表
-            if (self.searchList.offsetHeight > 500) {
-                self.sList.style.height = 500 + 'px';
+            if (self.searchList.offsetHeight > 400) {
+                self.sList.style.height = 400 + 'px';
             }
             else {
                 self.sList.style.height = self.searchList.offsetHeight + 30 + 'px';
@@ -285,11 +285,11 @@
         }
         this.listButton.onclick = function () {
             if (self.mList.offsetHeight == 0) {
-                if (self.musicList.offsetHeight < 500) {
+                if (self.musicList.offsetHeight < 400) {
                     self.mList.style.height = self.musicList.offsetHeight + 'px';
                 }
                 else {
-                    self.mList.style.height = "500px";
+                    self.mList.style.height = "400px";
                 }
             }
             else {
