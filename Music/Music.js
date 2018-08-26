@@ -49,7 +49,7 @@
         //初始化
         this.init();
         //设置大小
-        this.setSize(400, 100);
+        this.setSize(360, 90);
         this.progressLen = this.progressAll.offsetWidth - 6;
 
     }
