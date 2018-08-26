@@ -145,7 +145,7 @@
                     self.loadMusic();
                 }
             }());
-        }
+        } 
     }
     //歌词显示
     Music.prototype.moveLyric = function () {
