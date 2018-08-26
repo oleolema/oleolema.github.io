@@ -30,11 +30,12 @@
     top: -3px;
     width: 400px;
     height: 140px;
-    filter: blur(6.18px) opacity(61.8%);
+    filter: blur(6.18px) opacity(50%);
     z-index: -9999;
     background-size: 400px;
     background-position: center;
     background-repeat: no-repeat;
+    transition: background 1s;
 }
 
 .loading {
@@ -61,6 +62,7 @@
     background-size: 100px 100px;
     background-repeat: no-repeat;
     z-index: -999;
+    transition: background 1s;
 }
 
 .progressBar {
