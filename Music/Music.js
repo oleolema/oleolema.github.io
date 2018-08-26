@@ -422,7 +422,7 @@
         this.timer2;
         clearInterval(this.timer1);
         clearInterval(this.timer2);
-        this.timer1 = setInterval(function () { self.refresh(); }, 1000);
+        this.timer1 = setInterval(function () { self.refresh(); }, 20);
         this.timer2 = setInterval(function () {
             self.progressPoint.style.left = self.progressLen * self.audio.currentTime / self.audio.duration + 'px';         //进度条
         }, 1000);
