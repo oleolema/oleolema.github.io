@@ -301,17 +301,17 @@
 .navigation li {
     float: left;
     text-align: center;
-    width:180px;
-    height:30px;
+    width: 180px;
+    height: 30px;
     list-style: none;
     line-height: 30px;
-    transition:all 1s;
-    border:1px solid rgba(0, 0, 0, 0);
+    transition: all 1s;
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .navigation li:hover {
-    border:1px solid rgb(255, 123, 145);
-    background:rgb(255, 186, 186);
+    border: 1px solid rgb(255, 123, 145);
+    background: rgb(255, 186, 186);
 }
 
 .navigation {
@@ -345,6 +345,6 @@
 }
 
 .musicList li:hover, .searchList li:hover {
-    color: #eee;
-    background: #666;
+    color: #eee !important;
+    background: #666 !important;
 }

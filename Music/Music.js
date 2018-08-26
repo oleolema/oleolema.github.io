@@ -68,15 +68,14 @@
         self.music.source = self.list[self.listIndex].source;
         self.music.getMusic(function (m) {
             self.m = m;
-            self.setMusic(m.music.url, self.list[self.listIndex].name + ' - ' + self.list[self.listIndex].artist, m.pic.url);
-            self.getTimeLyric();
             self.audio.oncanplay = function () {
                 if (autoPlay) {
                     self.play();
                 }
                 self.loading.className = "loaded";
             }
-     
+            self.setMusic(m.music.url, self.list[self.listIndex].name + ' - ' + self.list[self.listIndex].artist, m.pic.url);
+            self.getTimeLyric();
             clearInterval(timer);
         });
     }
@@ -377,19 +376,28 @@
             (function () {
                 var index = i;
                 self.navigation.children[i].onclick = function () {
+                    for (var j = 0; j < self.navigation.children.length; j++) {
+                        self.navigation.children[j].style.border = "1px solid rgba(255, 123, 0, 0)";
+                    }
                     self.music.sheetId = self.navigation.children[index].value;
+                    this.style.border = "1px solid rgb(255, 123, 145)";
                     self.getSheet();
                 }
             }());
         }
-
         self.getSheet(function () {
-            self.loadMusic(false)
-        });        //获取一个歌单
+            self.loadMusic(false);
+            self.navigation.children[0].style.border = "1px solid rgb(255, 123, 145)";
+        }); //获取一个歌单
     }
 
 
     Music.prototype.setMusic = function (src, name, img) {
+        var self = this;
+        if(src == ""){
+            return ;
+        }
+        src = src.replace(/m(\d)c/, 'm7');         //去掉c
         this.audio.src = src;
         this.name.innerHTML = name;
         this.img.style.backgroundImage = 'url(' + img + ')';
@@ -397,7 +405,7 @@
     }
     Music.prototype.play = function () {
         var self = this;
-        this.audio.play();
+        self.audio.play();
         this.playButton.className = "pauseButton";
         this.musicList.children[this.preListIndex].style.background = '#f1f1f1';
         this.musicList.children[this.listIndex].style.background = 'pink';

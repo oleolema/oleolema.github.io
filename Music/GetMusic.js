@@ -3,7 +3,7 @@
         var self = this;
         this.back = [];
         this.count = 20;
-        this.source ;
+        this.source;
         this.pages = 1;
         this.name = '再也不会遇见第二个她';
         this.picId;
@@ -48,14 +48,14 @@
         var music = {};
         this.http("https://y.xuelg.com/api.php?callback=yue107&types=url&id=" + this.musicId + "&source=" + this.source, function () {
             music.music = self.back;
-            self.getPic(function () {
-                music.pic = self.back;
-                self.getLyric(function () {
-                    music.lyric = {
-                        y: self.back.lyric.split('\n'),
-                        t: self.back.lyric.split('\n'),
-                        n: 0
-                    }
+            self.getLyric(function () {
+                music.lyric = {
+                    y: self.back.lyric.split('\n'),
+                    t: self.back.lyric.split('\n'),
+                    n: 0
+                }
+                self.getPic(function () {
+                    music.pic = self.back;
                     callback(music);
                 })
 
@@ -63,5 +63,7 @@
         });
 
     }
+
+
 
 }());
