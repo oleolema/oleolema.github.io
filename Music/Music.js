@@ -145,7 +145,7 @@
                     self.loadMusic();
                 }
             }());
-        } 
+        }
     }
     //歌词显示
     Music.prototype.moveLyric = function () {
@@ -158,20 +158,21 @@
         var that
         for (i in this.m.lyric.time) {
             if (this.audio.currentTime + 0.618 <= i) {        //多加1s提前显示歌词
-
                 that = this.m.lyric.time[pre] == undefined ? "" : this.m.lyric.time[pre];
-                if (this.lyrica.offsetTop < 0 && that != this.lyricb.innerHTML) {        //a在上时
+                if (this.lyrica.offsetTop < 0 && pre != this.m.lyric.preTime) {        //a在上时
                     //移动到上面
                     this.lyricb.style.top = -40 + 'px';     //b上去
                     //两个元素一起滑下
-                    this.lyrica.innerHTML = that + "";
+                    this.lyrica.innerHTML = that + "";      //显示歌词
+                    this.m.lyric.preTime = pre;             //储存时间
                     this.lyrica.style.top = 0 + 'px';       //a下来
                 }
-                else if (this.lyricb.offsetTop < 0 && that != this.lyrica.innerHTML) {        //b在上时
+                else if (this.lyricb.offsetTop < 0 && pre != this.m.lyric.preTime) {        //b在上时
                     //移动到上面
                     this.lyrica.style.top = -40 + 'px';     //a上去
                     //两个元素一起滑下
                     this.lyricb.innerHTML = that + "";
+                    this.m.lyric.preTime = pre;
                     this.lyricb.style.top = 0 + 'px';       //b下来
                 }
                 return;
@@ -394,8 +395,8 @@
 
     Music.prototype.setMusic = function (src, name, img) {
         var self = this;
-        if(src == ""){
-            return ;
+        if (src == "") {
+            return;
         }
         src = src.replace(/m(\d)c/, 'm7');         //去掉c
         this.audio.src = src;
