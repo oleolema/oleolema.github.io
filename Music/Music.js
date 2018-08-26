@@ -414,6 +414,7 @@
             return;
         }
         src = src.replace(/m(\d)c/, 'm7');         //去掉c
+        this.m.music.url = src;
         this.audio.src = src;
         this.name.innerHTML = name;
         this.img.style.backgroundImage = 'url(' + img + ')';
