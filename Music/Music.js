@@ -83,6 +83,7 @@
     //获取歌单
     Music.prototype.getSheet = function (callback) {
         var self = this;
+        // self.mList.style.height = 0 + 'px';         //收起歌单列表
         var timer = setTimeout(function () {
             self.loading.className = "loading";
         }, 500);
@@ -110,7 +111,6 @@
                     url_id: list[i].id,
                 });
             }
-
             self.listIndex = parseInt(Math.random() * self.list.length);        //随机一首歌
             self.preListIndex = self.listIndex;
             //推入HTML中
@@ -183,7 +183,8 @@
     //搜索音乐
     Music.prototype.smusic = function () {
         var self = this;
-        self.sList.style.height = 0 + 'px';
+        self.sList.style.height = 0 + 'px';         //收起搜索列表
+        self.mList.style.height = 0 + 'px';         //收起歌单列表
         var timer = setTimeout(function () {
             self.loading.className = "loading";
         }, 500);
@@ -284,17 +285,7 @@
             }
         }
         this.listButton.onclick = function () {
-            if (self.mList.offsetHeight == 0) {
-                if (self.musicList.offsetHeight < 400) {
-                    self.mList.style.height = self.musicList.offsetHeight + 'px';
-                }
-                else {
-                    self.mList.style.height = "400px";
-                }
-            }
-            else {
-                self.mList.style.height = '0px';
-            }
+            self.takeUpmList();
         }
         this.downloadButton.onclick = function () {
             if (self.m.music.url) {
@@ -373,16 +364,40 @@
             }
         }
         //列表
+        Music.prototype.takeUpmList = function () {
+            self.sList.style.height = 0 + 'px';         //收起搜索列表
+            if (self.mList.offsetHeight == 0) {
+                if (self.musicList.offsetHeight < 400) {
+                    self.mList.style.height = self.musicList.offsetHeight + 'px';
+                }
+                else {
+                    self.mList.style.height = "400px";
+                }
+            }
+            else {
+                self.mList.style.height = '0px';
+            }
+        }
         for (i in self.navigation.children) {
             (function () {
                 var index = i;
                 self.navigation.children[i].onclick = function () {
+                    self.mList.style.height = 0 + 'px';
                     for (var j = 0; j < self.navigation.children.length; j++) {
                         self.navigation.children[j].style.border = "1px solid rgba(255, 123, 0, 0)";
                     }
                     self.music.sheetId = self.navigation.children[index].value;
                     this.style.border = "1px solid rgb(255, 123, 145)";
-                    self.getSheet();
+                    self.getSheet(
+                        function () {
+                            if (self.musicList.height < 400) {
+                                self.mList.style.height = self.musicList.height + 'px';
+                            }
+                            else {
+                                self.mList.style.height = 400 + 'px';
+                            }
+                        }
+                    );
                 }
             }());
         }
