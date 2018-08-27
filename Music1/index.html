@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="music.css">
+</head>
+
+<body>
+
+    <div class="musicPlayer">
+        <audio class="myAudio"></audio>
+        <div class="bgPic"></div>
+        <div class="loading"></div>
+        <div class="musicImg"></div>
+        <div class="musicName"></div>
+        <div class="progressBar">
+            <div class="progressAll">
+                <div class="progressPoint"></div>
+            </div>
+            <div class="progressTime"></div>
+            <div class="progressAllTime"></div>
+        </div>
+        <div class="button">
+            <div class="playButton"></div>
+            <div class="preButton"></div>
+            <div class="nextButton"></div>
+            <div class="downloadButton"></div>
+            <div class="searchButton">
+            </div>
+            <div class="searchGroup">
+                <input type="input" class="searchInput">
+                <div class="sButton">搜索</div>
+                <div class="radioGroup">
+                    <div class="radio1">网易<input type="radio" value="netease" name="source" checked></div>
+                    <div class="radio2">QQ<input type="radio" value="tencent" name="source"></div>
+                    <div class="radio3">酷狗<input type="radio" value="kugou" name="source"></div>
+                    <div class="radio4">百度<input type="radio" value="baidu" name="source"></div>
+                    <div class="radio5">虾米<input type="radio" value="xiami" name="source"></div>
+                </div>
+            </div>
+            <div class="listButton"></div>
+        </div>
+        <div class="lyric">
+            <ul class="lyricList">
+                <li class="lyricli1">不来点音乐吗</li>
+                <li class="lyricli2">不来点音乐吗</li>
+            </ul>
+        </div>
+        <div class="mList">
+            <ul class="navigation">
+                <li value="3778678" class="navigation1">网易云热歌榜</li>
+                <li value="736950184" class="navigation1">我喜欢的音乐</li>
+            </ul>
+            <ul class="musicList">
+            </ul>
+        </div>
+        <div class="sList">
+            <ul class="searchList">
+            </ul>
+        </div>
+        <!-- 歌词部分 -->
+        <div class="myLyric">
+            <div class="lyricBgPic"></div>
+            <ul class="myLyricList"></ul>
+        </div>
+    </div>
+</body>
+<script src="Lyric.js"></script>
+<script src="GetMusic.js"></script>
+<script src="Music.js"></script>
+
+<script>
+    var music = new Music();
+</script>
+
+</html>

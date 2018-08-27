@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        color:#ffffff;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .myLyric {
+        position: absolute;
+        transition: all 0.5s;
+        background-color: #000000;
+        z-index: 1000;
+
+    }
+
+    .lyricno,
+    .lyricyes {
+        margin: 20px;
+        transition: all 0.5s;
+    }
+
+    .lyricyes {
+        color: palevioletred !important;
+        transition: all 0.5s;
+    }
+
+    .myLyricList {
+        width: 500px;
+        height: 500px;
+        overflow: auto;
+    }
+
+    .myLyricList li {
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .lyricBgPic {
+        background: bisque;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        z-index: -999;
+        background-repeat: no-repeat;
+        background-size: 500px 500px;
+        background-position: center;
+        filter: blur(20px) opacity(0.618);
+    }
+
+    /*定义滚动条高宽及背景*/
+    .myLyricList::-webkit-scrollbar {
+        width: 8px;
+        opacity: 0;
+    }
+
+    /*定义滚动条轨道*/
+    .myLyricList::-webkit-scrollbar-track {
+        opacity: 0;
+    }
+
+    /*定义滑块*/
+    .myLyricList::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(185, 183, 183, 0.5);
+    }
+
+    .myLyricList::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(185, 183, 183, 0.9);
+    }
+</style>
+
+<body>
+    <audio class="myaudio"></audio>
+
+    <div class="myLyric">
+        <div class="lyricBgPic"></div>
+        <ul class="myLyricList"></ul>
+    </div>
+</body>
+<script src="GetMusic.js"></script>
+<script src="Lyric.js"></script>
+<script>
+    var lyric = new Lyric();
+</script>
+
+</html>
