@@ -9,3 +9,4 @@
 * [球球](http://oleolema.github.io/bollBoll/)
 * [飞机大战](http://oleolema.github.io/Plane%20Wars/)
 * [音乐](http://oleolema.github.io/Music/)
+* [全屏的音乐](http://oleolema.github.io/Music1/)
