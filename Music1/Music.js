@@ -397,8 +397,8 @@
         var self = this;
         self.audio.play();
         this.playButton.className = "pauseButton";
-        this.musicList.children[this.preListIndex].style.background = '#f1f1f1';
-        this.musicList.children[this.listIndex].style.background = 'pink';
+        this.musicList.children[this.preListIndex].style.background = '#20202000';
+        this.musicList.children[this.listIndex].style.background = '#ffc0cb9e';
         this.preListIndex = this.listIndex;
         //设置进度条
         var minutes = new Date(self.audio.duration * 1000).getMinutes();

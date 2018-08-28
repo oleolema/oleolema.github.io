@@ -15,6 +15,7 @@
         var self = this;
         var list = "";
         for (var i in self.m.lyric.time) {
+            // console.info(self.m.lyric.time[i]);
             list += '<li class="lyricno">' + self.m.lyric.time[i] + '</li>'
         }
         if (!self.m.lyric.y[0]) {
@@ -71,42 +72,36 @@
     Lyric.prototype.getLyric = function () {
         var self = this;
         var arrLyric = self.m.lyric.y;
-        self.m.lyric.time = {};
-        var regexp = /\[\d*:\d*.?\d+\]/;
+        var lyricObj = {};
+        var regexp = /\[\d*:\d*.?\d+\]/g;
         for (var i = 0; i < arrLyric.length; i++) {
-            try {
-                var time = arrLyric[i].match(regexp)[0];
-                var lyric = arrLyric[i].replace(regexp, "");
-                if (lyric == "") {
-                    continue;
-                }
-                var minute = parseFloat(time.match(/(?:\[)(\d*)/)[1]);
-                var seconds = parseFloat(time.match(/(?:\:)(\d*.?\d+)/)[1]);
-            }
-            catch (e) {
+            var lyric = arrLyric[i].replace(regexp, "");
+            if (lyric == "") {
                 continue;
             }
-            self.m.lyric.time[(minute * 60 + seconds).toFixed(2)] = lyric;
+            try {
+                var time = arrLyric[i].match(regexp);
+                for (var j in time) {               //每句有多个时间的处理
+                    var minute = parseFloat(time[j].match(/(?:\[)(\d*)/)[1]);
+                    var seconds = parseFloat(time[j].match(/(?:\:)(\d*.?\d+)/)[1]);
+                    lyricObj[(minute * 60 + seconds).toFixed(2)] = lyric;
+                }
+            }
+            catch (e) {
+                console.error(e);
+                continue;
+            }
+        }
+        //按时间顺序排序
+        var sortTime = Object.keys(lyricObj).sort(function (a, b) {
+            return a - b;
+        });
+        //复制到歌词对象中
+        self.m.lyric.time= {};
+        for (var i in sortTime) {
+            self.m.lyric.time[sortTime[i]] = lyricObj[sortTime[i]];
         }
         return self.m.lyric.time;
-    }
-    Lyric.prototype.loadMusic = function (callback) {
-        var self = this;
-        this.music.getMusic(function () {
-            self.music.name = "i love poland";
-            self.music.searchMusic(function () {
-                var back = self.music.back;
-                console.info(back);
-                self.music.musicId = back[0].id;
-                self.music.picId = back[0].pic_id;
-                self.music.lyricId = back[0].lyric_id;
-                self.music.getMusic(function (m) {
-                    console.info(m);
-                    self.m = m;
-                    callback && callback();
-                });
-            });
-        });
     }
     //返回顶部
     Lyric.prototype.backTop = function () {
@@ -120,6 +115,7 @@
             }
         }, 1);
     }
+    //初始化
     Lyric.prototype.init = function () {
         var self = this;
         //添加监听器
@@ -130,17 +126,12 @@
                 self.wheel.w = false;
             }, 3000);
         }
-        self.lyricList.onmouseover = function () {
-            self.isover = true;
-        }
-        self.lyricList.onmouseout = function () {
-            self.isover = false;
-        }
         window.onresize = function () {
             self.setSize(window.innerWidth, window.innerHeight);
         }
         self.setSize(window.innerWidth, window.innerHeight);
     }
+    //设置歌词
     Lyric.prototype.setLyric = function () {
         var self = this;
         self.getLyric();
@@ -148,6 +139,7 @@
         self.moveLyric();
         self.bgPic.style.backgroundImage = 'url(' + self.m.pic.url + ')';
     }
+    //设置大小
     Lyric.prototype.setSize = function (width, height) {
         var self = this;
         self.lyricL.style.height = height + 'px';
