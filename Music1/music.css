@@ -410,7 +410,7 @@ li {
     background-repeat: no-repeat;
     background-size: 500px 500px;
     background-position: center;
-    filter: blur(20px) opacity(0.618);
+    filter: blur(50px) opacity(0.618);
     transition: background 1s;
 }
 
