@@ -205,28 +205,30 @@
     left: 1px;
     width: 297px;
     height: 25px;
-    border: 1px solid rgb(255, 255, 255);
     background: #ffffff00;
     cursor: default;
     outline: 0;
     color: #fff;
+    border: none;
+    border-bottom: 2px solid white;
 }
 
 .searchGroup .sButton {
-    left: 250px;
-    top: 36px;
+    left: 246px;
+    top: 34px;
     width: 28px;
-    height: 18px;
+    height: 17px;
     padding: 2px 10px;
     /* background: rgba(179, 179, 179, 0.575); */
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     font-size: 14px;
-    line-height: 18px;
+    line-height: 17px;
     transition: all 1s;
 }
 
 .searchGroup .sButton:hover {
     background: white;
+    color:black;
 }
 
 .radioGroup {
