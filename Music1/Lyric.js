@@ -4,7 +4,6 @@
         this.lyricL = document.getElementsByClassName("myLyric")[0];
         this.bgPic = document.getElementsByClassName("lyricBgPic")[0];
         this.lyricList = document.getElementsByClassName("myLyricList")[0];
-        this.music = new GetMusic();
         this.wheel = {};
         this.m = [];
         //初始化
@@ -50,7 +49,7 @@
                     var end = top - self.lyricList.offsetHeight * (1 - 0.618);                       //滑动结束的位置   少滑动点使歌词在中间
                     var step = Math.round((end - self.lyricList.scrollTop) / 60);                    //滑动速度
                     var preTop = self.lyricList.scrollTop;                                           //初始化上次滑动的位置                  
-                    if(innerWidth < 1100){
+                    if(Music.isMoblie){     //移动端高度调整
                         end -= 140;
                     }
                     self.timer = setInterval(function () {
@@ -130,9 +129,7 @@
                 self.wheel.w = false;
             }, 3000);
         }
-        window.onresize = function () {
-            self.setSize(window.innerWidth, window.innerHeight);
-        }
+            
         self.setSize(window.innerWidth, window.innerHeight);
     }
     //设置歌词
@@ -153,9 +150,10 @@
         self.bgPic.style.height = height + 'px';
         self.bgPic.style.width = width + 'px';
         self.bgPic.style.backgroundSize = width + 'px ' + width + 'px';
-        if(innerWidth < 1100){
-            self.lyricList.style.height = height - 140 + 'px';
+        if(Music.isMoblie){
             self.lyricList.style.marginTop = 140 + 'px';
+            self.lyricList.style.height = height - 140 + 'px';
+            // self.lyricL.style.fontSize = "10px";
         }
         else{
             self.lyricList.style.height = "inherit";

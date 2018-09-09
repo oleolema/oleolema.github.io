@@ -41,6 +41,7 @@
         this.searchList = this.sList.getElementsByClassName('searchList')[0];
         this.navigation = this.mList.getElementsByClassName('navigation')[0];
         //音乐来源
+        Music.isMoblie = false;      //是否为手机
         this.lyricObj = new Lyric();
         this.music = new GetMusic();
         this.list = [];          //播放列表
@@ -51,7 +52,7 @@
         //初始化
         this.init();
         //设置大小
-        this.setSize(400, 100);
+        this.dynamicSize();
         this.progressLen = this.progressAll.offsetWidth - 6;
 
     }
@@ -242,6 +243,10 @@
             self.moveLyric();
             self.lyricObj.moveLyric();
         }
+        //窗口大小调整
+        window.onresize = function(){
+            self.dynamicSize();
+        }
         //音频
         this.audio.onplay = function () {
 
@@ -380,7 +385,28 @@
             self.navigation.children[0].style.border = "1px solid rgb(255, 123, 145)";
         }); //获取一个歌单
     }
+    Music.prototype.dynamicSize = function(){
+        var self = this;
+        console.info(innerWidth);
+        Music.isMoblie = innerWidth < 1100 ? true : false;
+        self.lyricObj.setSize(innerWidth, innerHeight);
+        if(Music.isMoblie){         //
+            if(innerWidth < 400){
+                self.setSize(400,100);
+            }
+            else{
+                self.setSize(innerWidth,100);
+            }
+            self.sList.style.backgroundColor = "#607d8be8";
+            self.mList.style.backgroundColor = "#607d8be8";
+        }
+        else{
+            self.setSize(400,100);
+            self.sList.style.backgroundColor = "#20202052";
+            self.mList.style.backgroundColor = "#20202052";
+        }
 
+    }
 
     Music.prototype.setMusic = function (src, name, img) {
         var self = this;
@@ -452,6 +478,8 @@
         this.button.style.left = height + height / 10 + 'px';
         this.button.style.top = height * 2 / 3 + 'px';
         this.button.style.width = width - height - height / 10 - 30 + 'px';
+        //搜索框
+        
         //歌词
         this.lyric.style.width = width + 'px';
         this.lyrica.style.width = width + 'px';
