@@ -397,8 +397,8 @@
             else{
                 self.setSize(innerWidth,100);
             }
-            self.sList.style.backgroundColor = "#607d8be8";
-            self.mList.style.backgroundColor = "#607d8be8";
+            self.sList.style.backgroundColor = "#607d8b";
+            self.mList.style.backgroundColor = "#607d8b";
         }
         else{
             self.setSize(400,100);
