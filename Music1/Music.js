@@ -33,7 +33,7 @@
         this.lyricList = this.lyric.getElementsByClassName('lyricList')[0];
         this.lyrica = this.lyric.getElementsByClassName('lyricli1')[0];
         this.lyricb = this.lyric.getElementsByClassName('lyricli2')[0];
-        this.lyricObj = new Lyric();
+        
         //列表
         this.mList = this.player.getElementsByClassName('mList')[0];
         this.musicList = this.mList.getElementsByClassName('musicList')[0];
@@ -41,6 +41,7 @@
         this.searchList = this.sList.getElementsByClassName('searchList')[0];
         this.navigation = this.mList.getElementsByClassName('navigation')[0];
         //音乐来源
+        this.lyricObj = new Lyric();
         this.music = new GetMusic();
         this.list = [];          //播放列表
         this.srList = [];          //搜索列表
@@ -386,7 +387,7 @@
         if (src == "") {
             return;
         }
-        src = src.replace(/m(\d)c/, 'm7');         //去掉c
+        src = src.replace(/\/\/:m(\d)c/, '://m7');         //去掉c，网易前缀有c会出现请求403
         this.m.music.url = src;
         this.audio.src = src;
         this.name.innerHTML = name;

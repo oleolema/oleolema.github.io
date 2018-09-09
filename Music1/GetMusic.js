@@ -51,15 +51,14 @@
             self.getLyric(function () {
                 music.lyric = {
                     y: self.back.lyric.split('\n'),
-                    t: self.back.lyric.split('\n'),
+                    t: self.back.tlyric.split('\n'),
                     n: 0
                 }
                 self.getPic(function () {
                     music.pic = self.back;
                     callback(music);
-                })
-
-            })
+                });
+            });
         });
 
     }

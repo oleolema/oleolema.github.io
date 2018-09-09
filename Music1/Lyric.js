@@ -14,13 +14,14 @@
     Lyric.prototype.lyricToHtml = function () {
         var self = this;
         var list = "";
+        // list += '<li class="lyricno" style="height:'+80+'px"></li>';
         for (var i in self.m.lyric.time) {
             // console.info(self.m.lyric.time[i]);
             list += '<li class="lyricno">' + self.m.lyric.time[i] + '</li>'
         }
         if (!self.m.lyric.y[0]) {
             //list = '<li class="lyricno" style="height:' + (self.lyricL.offsetHeight - 50) + 'px;line-height:' + (self.lyricL.offsetHeight - 50) + 'px;" >' + "没有歌词" + '</li>';
-            list = '<li class="lyricno" >' + "没有歌词" + '</li>';
+            list = '<li class="lyricno" style="margin-top:200px" >' + "没有歌词" + '</li>';
         }
         self.lyricList.innerHTML = list;
 
@@ -49,6 +50,9 @@
                     var end = top - self.lyricList.offsetHeight * (1 - 0.618);                       //滑动结束的位置   少滑动点使歌词在中间
                     var step = Math.round((end - self.lyricList.scrollTop) / 60);                    //滑动速度
                     var preTop = self.lyricList.scrollTop;                                           //初始化上次滑动的位置                  
+                    if(innerWidth < 1100){
+                        end -= 140;
+                    }
                     self.timer = setInterval(function () {
                         self.lyricList.scrollTop += step;
                         if (self.lyricList.scrollTop == preTop) {       //没有效果的滑动直接停止
@@ -149,5 +153,13 @@
         self.bgPic.style.height = height + 'px';
         self.bgPic.style.width = width + 'px';
         self.bgPic.style.backgroundSize = width + 'px ' + width + 'px';
+        if(innerWidth < 1100){
+            self.lyricList.style.height = height - 140 + 'px';
+            self.lyricList.style.marginTop = 140 + 'px';
+        }
+        else{
+            self.lyricList.style.height = "inherit";
+            self.lyricList.style.marginTop = "inherit";
+        }
     }
 }());
