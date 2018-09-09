@@ -397,13 +397,13 @@
             else{
                 self.setSize(innerWidth,100);
             }
-            self.sList.style.backgroundColor = "#607d8b";
-            self.mList.style.backgroundColor = "#607d8b";
+            self.sList.style.background = "#607d8b";
+            self.mList.style.background = "#607d8b";
         }
         else{
             self.setSize(400,100);
-            self.sList.style.backgroundColor = "#20202052";
-            self.mList.style.backgroundColor = "#20202052";
+            self.sList.style.background = "#20202052";
+            self.mList.style.background = "#20202052";
         }
 
     }
