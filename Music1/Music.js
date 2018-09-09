@@ -53,7 +53,6 @@
         this.init();
         //设置大小
         this.dynamicSize();
-        this.progressLen = this.progressAll.offsetWidth - 6;
 
     }
     Music.prototype.loadMusic = function (autoPlay) {
@@ -387,16 +386,15 @@
     }
     Music.prototype.dynamicSize = function(){
         var self = this;
-        console.info(innerWidth);
         Music.isMoblie = innerWidth < 1100 ? true : false;
         self.lyricObj.setSize(innerWidth, innerHeight);
         if(Music.isMoblie){         //
-            if(innerWidth < 400){
-                self.setSize(400,100);
-            }
-            else{
+            // if(innerWidth < 400){
+            //     self.setSize(400,100);
+            // }
+            // else{
                 self.setSize(innerWidth,100);
-            }
+            // }
             self.sList.style.background = "#607d8b";
             self.mList.style.background = "#607d8b";
         }
@@ -427,6 +425,7 @@
         this.musicList.children[this.preListIndex].style.background = '#20202000';
         this.musicList.children[this.listIndex].style.background = '#ffc0cb9e';
         this.preListIndex = this.listIndex;
+        
         //设置进度条
         var minutes = new Date(self.audio.duration * 1000).getMinutes();
         var seconds = new Date(self.audio.duration * 1000).getSeconds();
@@ -439,7 +438,9 @@
         clearInterval(this.timer1);
         clearInterval(this.timer2);
         this.timer1 = setInterval(function () { self.refresh(); }, 20);
+        //进度条定时器刷新时间较慢，因为太快了在滑动或点击时容易卡顿
         this.timer2 = setInterval(function () {
+            self.progressLen = self.progressAll.offsetWidth - 6;        //进度条长度
             self.progressPoint.style.left = self.progressLen * self.audio.currentTime / self.audio.duration + 'px';         //进度条
         }, 1000);
     }
