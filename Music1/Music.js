@@ -389,12 +389,7 @@
         Music.isMoblie = innerWidth < 1100 ? true : false;
         self.lyricObj.setSize(innerWidth, innerHeight);
         if(Music.isMoblie){         //
-            // if(innerWidth < 400){
-            //     self.setSize(400,100);
-            // }
-            // else{
                 self.setSize(innerWidth,100);
-            // }
             self.sList.style.background = "#607d8b";
             self.mList.style.background = "#607d8b";
         }
@@ -411,7 +406,7 @@
         if (src == "") {
             return;
         }
-        src = src.replace(/\/\/:m(\d)c/, '://m7');         //去掉c，网易前缀有c会出现请求403
+        src = src.replace(/:\/\/m(\d)c/, '://m7');         //去掉c，网易前缀有c会出现请求403
         this.m.music.url = src;
         this.audio.src = src;
         this.name.innerHTML = name;
