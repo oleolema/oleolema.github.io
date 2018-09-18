@@ -97,7 +97,7 @@
         imgBox.onmouseout = function () {           //离开图片重新开始滑动图片
             timer = setInterval(function () {
                 nextImg();
-            }, 3000);
+            }, 1000);
         }
     }
 
@@ -117,10 +117,9 @@
         img[next].a.style.left = imgBox.offsetWidth + 'px';
         //滑动动画
         (function () {
-            var step = setStep || 10;
-            var count = 0;
+            var step = setStep || 15;
             var timer = setInterval(function () {
-                if (++count * step >= imgBoxWidth) {
+                if (img[next].a.offsetLeft <= 0) {
                     img[that].a.style.left = -imgBoxWidth + 'px';       //对齐盒子
                     img[next].a.style.left = '0px';
                     clearInterval(timer);
@@ -128,6 +127,8 @@
                     isRotate = false;
                     return;
                 }
+                console.info(img[next].a.offsetLeft);
+                step *= 0.983;
                 img[next].a.style.left = img[next].a.offsetLeft - step + 'px';
                 img[that].a.style.left = img[that].a.offsetLeft - step + 'px';
             }, 1);
@@ -147,10 +148,9 @@
         img[pre].a.style.left = -imgBox.offsetWidth + 'px';
         //滑动动画
         (function () {
-            var step = setStep || 10;
-            var count = 0;
+            var step = setStep || 15;
             var timer = setInterval(function () {
-                if (++count * step >= imgBoxWidth) {
+                if (img[pre].a.offsetLeft >= 0) {
                     img[that].a.style.left = imgBoxWidth + 'px';       //对齐盒子
                     img[pre].a.style.left = '0px';
                     clearInterval(timer);
@@ -158,6 +158,7 @@
                     isRotate = false;
                     return;
                 }
+                step *= 0.983;
                 img[pre].a.style.left = img[pre].a.offsetLeft + step + 'px';
                 img[that].a.style.left = img[that].a.offsetLeft + step + 'px';
             }, 1);
