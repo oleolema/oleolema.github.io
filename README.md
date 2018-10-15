@@ -10,3 +10,4 @@
 * [飞机大战](http://oleolema.github.io/Plane%20Wars/)
 * [音乐](http://oleolema.github.io/Music/)
 * [全屏的音乐](http://oleolema.github.io/Music1/)
+* [全屏的音乐2.0](http://oleolema.github.io/MusicPlayer/)
