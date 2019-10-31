@@ -1,9 +1,7 @@
 
 # oleolema
 * [博客园](http://www.cnblogs.com/oleolema/)
-* [1](http://oleolema.github.io/1/)
-* [2](http://oleolema.github.io/yueyang/)
-* [3](http://oleolema.github.io/3/)
+* [智障五子棋](https://oleolema.github.io/five-in-a-row/index.html)
 * [贪吃蛇](http://oleolema.github.io/snake/)
 * [小球](http://oleolema.github.io/boll/)
 * [球球](http://oleolema.github.io/bollBoll/)
